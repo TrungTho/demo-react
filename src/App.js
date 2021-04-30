@@ -23,11 +23,23 @@ class App extends Component {
 
   //func to call when something is clicked
   doSomeThing(index) {
-    console.log("hehe", index);
+    //avoid process func when first time render data
+    //only process when an item is clicked
+    return (event) => {
+      console.log("index", index);
+      const currentListItem = this.state.listItem;
+      this.setState({
+        listItem: [
+          ...currentListItem.slice(0, index),
+          { ...currentListItem[index], isDone: !currentListItem[index].isDone },
+          ...currentListItem.slice(index + 1),
+        ],
+      });
+    };
 
-    let tempList = this.state.listItem;
-    tempList[index].isDone = !tempList[index].isDone;
-    this.setState({ listItem: tempList });
+    // let tempList = this.state.listItem;
+    // tempList[index].isDone = !tempList[index].isDone;
+    // this.setState({ listItem: tempList });
   }
 
   // render() {
@@ -47,7 +59,7 @@ class App extends Component {
             key={index}
             index={index}
             item={item}
-            onClick={() => this.doSomeThing(index)}
+            onClick={this.doSomeThing(index)}
           />
         ))}
       </>
