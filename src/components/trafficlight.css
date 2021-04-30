@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: inherit; */
+  align-content: center;
+  justify-content: center;
+}
+
+.TrafficLight {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  margin-top: 50px;
+  border-radius: 20px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.TrafficStick {
+  width: 10%;
+  height: 200px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+.TrafficLight .light {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: salmon;
+  margin: 10px;
+  opacity: 0.2;
+  display: inline-block;
+}
+
+.light.red {
+  background-color: red;
+}
+
+.light.orange {
+  background-color: orange;
+}
+
+.light.green {
+  background-color: green;
+}
+
+.light.active-light {
+  opacity: 1;
+}
