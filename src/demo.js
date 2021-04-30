@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./index.css";
 import classnames from "classnames";
+import checkedImg from "./images/checked.png";
+import uncheckedImg from "./images/unchecked.png";
 
 class Demo extends Component {
   // constructor(props) {
@@ -42,7 +44,13 @@ class Demo extends Component {
             rowDataDone: this.props.item.isDone === true,
           })}
         >
-          <h5>{this.props.item.title} </h5>
+          <p>
+            <img
+              className="itemIcon"
+              src={this.props.item.isDone ? checkedImg : uncheckedImg}
+            />
+            {this.props.item.title}{" "}
+          </p>
         </div>
       </div>
     );

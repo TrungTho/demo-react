@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Demo from "./demo";
-import TrafficLight from "./components/trafficlight";
+// import TrafficLight from "./components/trafficlight";
 
 class App extends Component {
   //create temp data with cons
