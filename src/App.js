@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Demo from "./demo";
 // import TrafficLight from "./components/trafficlight";
+import selectAll from "../src/images/selectall.png";
 
 class App extends Component {
   //create temp data with cons
@@ -53,15 +54,22 @@ class App extends Component {
   render() {
     return (
       <>
-        <h2>todolist</h2>
-        {this.state.listItem.map((item, index) => (
-          <Demo
-            key={index}
-            index={index}
-            item={item}
-            onClick={this.doSomeThing(index)}
-          />
-        ))}
+        <h2>Todo List</h2>
+        <div className="itemHeader">
+          <img src={selectAll} className="itemIcon"></img>
+          <input type="text" placeholder="something to do"></input>
+        </div>
+
+        <div className="itemBox">
+          {this.state.listItem.map((item, index) => (
+            <Demo
+              key={index}
+              index={index}
+              item={item}
+              onClick={this.doSomeThing(index)}
+            />
+          ))}
+        </div>
       </>
     );
   }

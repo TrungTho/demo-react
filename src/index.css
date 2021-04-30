@@ -15,6 +15,10 @@ code {
     monospace;
 }
 
+h2 {
+  margin: 40px;
+}
+
 .rowData {
   width: 200px;
   font-size: larger;
@@ -25,7 +29,9 @@ code {
   align-items: center;
   border: darkgoldenrod;
   border-style: dashed;
+  border-radius: 10px;
   /* box-sizing: content-box; */
+  text-transform: capitalize;
 }
 
 .rowDataDone {
@@ -40,4 +46,18 @@ code {
   vertical-align: middle;
   float: left;
   margin-left: 10px;
+}
+
+.itemHeader {
+  margin-bottom: 100px;
+}
+
+input {
+  height: 25px;
+  border: 1px gray;
+  border-style: none none solid none;
+  float: right;
+}
+input:visited {
+  border-style: none;
 }
