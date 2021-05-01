@@ -10,6 +10,7 @@ class App extends Component {
 
     super();
     this.state = {
+      userInput: "",
       listItem: [
         { title: "an sang", isDone: false },
         { title: "an trua", isDone: false },
@@ -21,6 +22,7 @@ class App extends Component {
 
     this.doSomeThing = this.doSomeThing.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
+    this.userInputChange = this.userInputChange.bind(this);
   }
 
   //func to call when something is clicked
@@ -54,12 +56,21 @@ class App extends Component {
 
   addNewItem(event) {
     if (event.keyCode === 13) {
-      const newItem = event.target.value;
-
-      this.setState({
-        listItem: [{ title: newItem, isDone: false }, ...this.state.listItem],
-      });
+      const newItem = event.target.value.trim();
+      if (newItem !== "") {
+        this.setState({
+          userInput: "",
+          listItem: [{ title: newItem, isDone: false }, ...this.state.listItem],
+        });
+      } else {
+        return;
+      }
     }
+  }
+
+  userInputChange(event) {
+    const userInputString = event.target.value;
+    this.setState({ userInput: userInputString });
   }
 
   render() {
@@ -72,7 +83,9 @@ class App extends Component {
             type="text"
             placeholder="something to do"
             autoFocus={true}
+            value={this.state.userInput}
             onKeyUp={this.addNewItem}
+            onChange={this.userInputChange}
           ></input>
         </div>
 
