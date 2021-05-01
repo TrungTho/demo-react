@@ -58,6 +58,7 @@ input {
   border-style: none none solid none;
   float: right;
 }
-input:visited {
-  border-style: none;
+input:focus {
+  /* border-style: none; */
+  outline: none;
 }

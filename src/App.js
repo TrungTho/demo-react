@@ -20,6 +20,7 @@ class App extends Component {
     };
 
     this.doSomeThing = this.doSomeThing.bind(this);
+    this.addNewItem = this.addNewItem.bind(this);
   }
 
   //func to call when something is clicked
@@ -51,13 +52,28 @@ class App extends Component {
   //   );
   // }
 
+  addNewItem(event) {
+    if (event.keyCode === 13) {
+      const newItem = event.target.value;
+
+      this.setState({
+        listItem: [{ title: newItem, isDone: false }, ...this.state.listItem],
+      });
+    }
+  }
+
   render() {
     return (
       <>
         <h2>Todo List</h2>
         <div className="itemHeader">
           <img src={selectAll} className="itemIcon"></img>
-          <input type="text" placeholder="something to do"></input>
+          <input
+            type="text"
+            placeholder="something to do"
+            autoFocus={true}
+            onKeyUp={this.addNewItem}
+          ></input>
         </div>
 
         <div className="itemBox">
