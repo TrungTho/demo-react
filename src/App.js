@@ -10,6 +10,9 @@ class App extends Component {
 
     super();
     this.state = {
+      showAll: true,
+      showOnlyActive: false,
+      showOnlyCompleted: false,
       userInput: "",
       listItem: [
         { title: "an sang", isDone: false },
@@ -23,6 +26,10 @@ class App extends Component {
     this.doSomeThing = this.doSomeThing.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
     this.userInputChange = this.userInputChange.bind(this);
+    this.selectAll = this.selectAll.bind(this);
+    this.showAll = this.showAll.bind(this);
+    this.showOnlyActive = this.showOnlyActive.bind(this);
+    this.showOnlyCompleted = this.showOnlyCompleted.bind(this);
   }
 
   //func to call when something is clicked
@@ -30,7 +37,7 @@ class App extends Component {
     //avoid process func when first time render data
     //only process when an item is clicked
     return (event) => {
-      console.log("index", index);
+      // console.log("index", index);
       const currentListItem = this.state.listItem;
       this.setState({
         listItem: [
@@ -68,6 +75,42 @@ class App extends Component {
     }
   }
 
+  selectAll() {
+    let newListItem = [];
+    for (let item of this.state.listItem) {
+      newListItem = [...newListItem, { title: item.title, isDone: true }];
+    }
+    // console.log(newListItem);
+
+    this.setState({
+      listItem: newListItem,
+    });
+  }
+
+  showAll() {
+    this.setState({
+      showAll: true,
+      showOnlyActive: false,
+      showOnlyCompleted: false,
+    });
+  }
+
+  showOnlyActive() {
+    this.setState({
+      showAll: false,
+      showOnlyActive: true,
+      showOnlyCompleted: false,
+    });
+  }
+
+  showOnlyCompleted() {
+    this.setState({
+      showAll: false,
+      showOnlyActive: false,
+      showOnlyCompleted: true,
+    });
+  }
+
   userInputChange(event) {
     const userInputString = event.target.value;
     this.setState({ userInput: userInputString });
@@ -78,7 +121,11 @@ class App extends Component {
       <>
         <h2>Todo List</h2>
         <div className="itemHeader">
-          <img src={selectAll} className="itemIcon"></img>
+          <img
+            src={selectAll}
+            className="itemIcon"
+            onClick={this.selectAll}
+          ></img>
           <input
             type="text"
             placeholder="something to do"
@@ -96,8 +143,35 @@ class App extends Component {
               index={index}
               item={item}
               onClick={this.doSomeThing(index)}
+              showAll={this.state.showAll}
+              showOnlyActive={this.state.showOnlyActive}
+              showOnlyCompleted={this.state.showOnlyCompleted}
             />
           ))}
+        </div>
+
+        <div className="footer">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.showAll}
+          >
+            All
+          </button>{" "}
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.showOnlyCompleted}
+          >
+            Completed
+          </button>{" "}
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.showOnlyActive}
+          >
+            Active
+          </button>{" "}
         </div>
       </>
     );

@@ -40,9 +40,19 @@ class Demo extends Component {
       // when this.doSomeThing is called, new context will not know what is "this" mean
       <div className="Demo" onClick={this.props.onClick}>
         <div
-          className={classnames("rowData", "", {
-            rowDataDone: this.props.item.isDone === true,
-          })}
+          className={classnames(
+            "rowData",
+            {
+              rowDataHide:
+                (this.props.item.isDone === true &&
+                  this.props.showOnlyActive === true) ||
+                (this.props.item.isDone === false &&
+                  this.props.showOnlyCompleted === true),
+            },
+            {
+              rowDataDone: this.props.item.isDone === true,
+            }
+          )}
         >
           <p>
             <img
