@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 // import Demo from "./demo";
+import Counter from "./counter";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Counter />
   </React.StrictMode>,
   document.getElementById("root") //đổ data vào vùng có id = root ở index.html ở ngoài
 );
