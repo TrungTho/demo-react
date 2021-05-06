@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./App";
 // import Demo from "./demo";
-import Counter from "./counter";
+// import Counter from "../src/components/counter";
+import Ecomerce from "./components/ecomerce-demo/ecomerce";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter />
+    <Ecomerce />
   </React.StrictMode>,
   document.getElementById("root") //đổ data vào vùng có id = root ở index.html ở ngoài
 );
