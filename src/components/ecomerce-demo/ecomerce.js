@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TopMenu from "./top-menu";
 
+import product from "./pages/products";
 const home = () => <h2>Home</h2>;
-const product = () => <h2>product</h2>;
 
 function App(props) {
   return (
@@ -12,12 +12,12 @@ function App(props) {
       <div className="App">
         <TopMenu />
 
-        <li>
+        {/* <li>
           <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/products">Products</Link>
-        </li>
+        </li> */}
       </div>
 
       <Route path="/" exact component={home} />

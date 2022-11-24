@@ -25,6 +25,7 @@ class Counter extends Component {
 
   componentDidMount() {
     console.log("did mount");
+    //api state
   }
 
   componentDidUpdate() {

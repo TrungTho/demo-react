@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Demo from "./demo";
+import Demo from "./components/demo.js";
 // import TrafficLight from "./components/trafficlight";
 import selectAll from "../src/images/selectall.png";
 

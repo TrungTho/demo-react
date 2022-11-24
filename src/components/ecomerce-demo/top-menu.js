@@ -16,6 +16,7 @@ import AirplayIcon from "@material-ui/icons/Airplay";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -194,11 +195,23 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <HomeIcon />
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <AirplayIcon />
+            <Link to="/">
+              <IconButton aria-label="show 4 new mails" color="secondary">
+                <HomeIcon />
+              </IconButton>
+            </Link>
+            <Link to="/products">
+              <IconButton
+                aria-label="show 17 new notifications"
+                color="secondary"
+              >
+                <AirplayIcon />
+              </IconButton>
+            </Link>
+            <IconButton color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <ShoppingCartIcon />
+              </Badge>
             </IconButton>
             <IconButton
               edge="end"

@@ -4,11 +4,13 @@ import "./index.css";
 // import App from "./App";
 // import Demo from "./demo";
 // import Counter from "../src/components/counter";
-import Ecomerce from "./components/ecomerce-demo/ecomerce";
+// import Ecomerce from "./components/ecomerce-demo/ecomerce";
+import HookCounter from "./components/counter/counter-with-hook";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Ecomerce />
+    <HookCounter />
   </React.StrictMode>,
   document.getElementById("root") //đổ data vào vùng có id = root ở index.html ở ngoài
 );
